@@ -105,6 +105,21 @@ to the name of whichever stack is currently marked as the default
 stack.  Use the L<stacks|App::Pinto::Command::stacks> command
 to see the stacks in the repository.
 
+=item --force
+
+Usually if the package already exists (e.g., because it has the same
+version number) you cannot add it twice. With this option you can.
+
+It drops the existing archive file from the repository and adds the
+new one back again. It registers it for the original stacks, restores
+the original pinning, and it recursively pulls all the prerequisites
+(unless C<--norecurse> is set), for each of the original stacks.
+
+With this option you can hotfix a repository or use your repository as
+an experimental staging area before you upload to CPAN - without
+inflating version numbers. Only use it when you know what you are
+doing.
+
 =back
 
 =cut
